@@ -1,0 +1,8 @@
+<div class="form-group" [class.has-error]="textValue.touched && textValue.invalid">
+  <label [attr.for]="inputId">{{ label }}</label>
+  <input [id]="inputId" (change)="inputChanges()" type="text" class="form-control" 
+         [(ngModel)]="inputValue" #textValue="ngModel" [required]="isRequired">
+  <span class="help-block" *ngIf="textValue.touched && textValue.invalid">
+    {{ label }} es requerido
+  </span>
+</div>

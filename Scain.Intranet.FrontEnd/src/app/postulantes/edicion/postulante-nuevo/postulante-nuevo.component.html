@@ -1,0 +1,95 @@
+<app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon"></app-page-title>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card-hover-shadow-2x mb-3 card">
+      <div class="card-header">Datos Personales</div>
+      <form [formGroup]="this.formGroup" class="needs-validation" novalidate (validSubmit)="this.handleValidSubmit()">
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-md-3 mb-3 form-group">
+              <app-drop-down-list [inputId]="'tipoIdentificacion'"
+                                  [items]="tiposIdentificacion" 
+                                  [label]="'Tipo de Identificacion'"
+                                  [isRequired]="true">
+              </app-drop-down-list>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <app-text-input [isRequired]="false" 
+                              [label]="'No. Identificación'"
+                              [inputId]="'identificacion'">
+              </app-text-input>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom03">País de expedición</label>
+              <ng-select [ngClass]="form-control" [items]="paises" bindLabel="name" placeholder="Seleccione un país"
+                formControlName="paisExpedicion" [(ngModel)]="model.PaisExpedicion" id="validationCustom03" required>
+              </ng-select>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom04">Ciudad de expedición</label>
+              <ng-select [ngClass]="form-control" [items]="ciudades" bindLabel="name"
+                placeholder="Seleccione una ciudad" formControlName="ciudadExpedicion"
+                [(ngModel)]="model.CiudadExpedicion" id="validationCustom04" required>
+              </ng-select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3 form-group">
+              <label for="validationCustom05">Primer Nombre</label>
+              <input formControlName="primerNombre" type="text" class="form-control" id="validationCustom05"
+                [(ngModel)]="model.primerNombre" placeholder="..." required>
+            </div>
+            <div class="col-md-6 mb-3 form-group">
+              <label>Segundo Nombre</label>
+              <input formControlName="segundoNombre" type="text" class="form-control" [(ngModel)]="model.segundoNombre"
+                placeholder="...">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3 form-group">
+              <label for="validationCustom02">Primer Apellido</label>
+              <input formControlName="primerApellido" type="text" class="form-control" id="validationCustom02"
+                [(ngModel)]="model.primerApellido" placeholder="..." required>
+            </div>
+            <div class="col-md-6 mb-3 form-group">
+              <label>Segundo Apellido</label>
+              <input formControlName="segundoApellido" type="text" class="form-control"
+                [(ngModel)]="model.segundoApellido" placeholder="...">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom06">Fecha de nacimiento</label>
+              <app-date-picker></app-date-picker>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom07">País</label>
+              <ng-select [ngClass]="form-control" [items]="paises" bindLabel="name" placeholder="Seleccione un país"
+                formControlName="pais" [(ngModel)]="model.PaisNacimiento" id="validationCustom07" required>
+              </ng-select>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom08">Departamento</label>
+              <ng-select [ngClass]="form-control" [items]="departamentos" bindLabel="name"
+                placeholder="Seleccione un departamento" formControlName="departamento"
+                [(ngModel)]="model.DepartamentoNacimiento" id="validationCustom08" required>
+              </ng-select>
+            </div>
+            <div class="col-md-3 mb-3 form-group">
+              <label for="validationCustom09">Ciudad</label>
+              <ng-select [ngClass]="form-control" [items]="ciudades" bindLabel="name"
+                placeholder="Seleccione una ciudad" formControlName="ciudad" [(ngModel)]="model.CiudadNacimiento"
+                id="validationCustom09" required>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="d-block text-right card-footer">
+          <a class="mr-2 btn btn-link btn-sm"  routerLink="" >Cancelar</a>
+          <button class="btn-shadow-primary btn btn-primary btn-lg" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

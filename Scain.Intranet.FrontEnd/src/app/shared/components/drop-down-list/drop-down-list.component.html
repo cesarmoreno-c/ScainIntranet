@@ -1,0 +1,13 @@
+<div class="form-group" [class.has-error]="selectValue.touched && selectValue.invalid">
+  <label [attr.for]="inputId">{{ label }}</label>
+  <select [id]="inputId" class="form-control ng-select-container" [(ngModel)]="inputValue" 
+          #selectValue="ngModel" [required]="isRequired">
+    <option selected>Seleccione</option>
+    <option *ngFor="let item of items" [value]="item.id">
+      {{item.name}}
+    </option>
+  </select>
+  <span class="help-block" *ngIf="selectValue.touched && selectValue.invalid">
+      {{ label }} es requerido
+  </span>
+</div>
